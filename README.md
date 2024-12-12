@@ -1,46 +1,38 @@
-# Detecting Offensive Language in Tweets
+Hate Speech Twitter annotations
+================================
 
-This project aims to detect offensive language in tweets using ML Classification Algorithms. A training and predicting pipeline is implemented
-to contrast performance of various popular classification algorithms and determine the best suited model. 
+Here we provide a data set of tweets which have been annotated for hate speech. 
 
-## Data
-Data is taken from two sources:
-1.	Hate Speech Twitter Annotations
-    - Publication: 
-Z. Waseem and D. Hovy. Hateful symbols or hateful people? predictive features for hate speech detection on twitter. In NAACL SRW, pages 88–93, 2016 
-    - Authors: Waseem, Zeerak and Hovy, Dirk
-    - GitHub Link: https://github.com/zeerakw/hatespeech
-    -	Description: 
-The dataset contains about 17,000 Tweet ID's labeled for racism and sexism. We downloaded this dataset and querried a Twitter API to scrape the actual tweets from Twitter. Retrieval of about tweets 5,900 failed either because the tweet was deleted or the account was deactivated. 
+We provide the ID and the annotation in a tab seperated file (`annotation.tsv`). To obtain the individual tweets, use the Twitter API of your choice and query for the ID's provided.
 
-2.	Hate Speech and Offensive Language Detection
-    - Publication: 
-Automated Hate Speech Detection and the Problem of Offensive Language
-    - Authors: Davidson, Thomas and Warmsley, Dana and Macy, Michael and Weber, Ingmar
-    - GitHub Link: https://github.com/t-davidson/hate-speech-and-offensive-language
-    - Description:
-The dataset has about 25,000 Tweets annotated by crowd sourcing. As per the number of users labeling the Tweets, each is put in one of three classes - hate speech, offensive language and neither. We downloaded the dataset in Python from GitHub as a csv file.<br>
-The data from both sources are clubbed. Here is the distribution of the tweets into the two classes:
+If using `NAACL_SRW_2016.csv` please cite using:
 
+~~~
+@InProceedings{waseem-hovy:2016:N16-2,
+  author    = {Waseem, Zeerak  and  Hovy, Dirk},
+  title     = {Hateful Symbols or Hateful People? Predictive Features for Hate Speech Detection on Twitter},
+  booktitle = {Proceedings of the NAACL Student Research Workshop},
+  month     = {June},
+  year      = {2016},
+  address   = {San Diego, California},
+  publisher = {Association for Computational Linguistics},
+  pages     = {88--93},
+  url       = {http://www.aclweb.org/anthology/N16-2013}
+}
+~~~
 
-![Dataset](/distribution_of_tweets.png)
+If using `NLP+CSS_2016.csv` please cite using:
 
-## Code
-The code is distributed into two Juypyter Notebooks which can be viewed in rendered format on the links:
-- cyberbullying_wrangling.ipynb | [Link](https://nbviewer.jupyter.org/github/dhavalpotdar/cyberbyllying-detection/blob/master/cyberbullying_wrangling.ipynb)
-- cyberbullying_v2.ipynb | [Link](https://nbviewer.jupyter.org/github/dhavalpotdar/cyberbyllying-detection/blob/master/cyberbullying_v2.ipynb)
-
-## Summary
-![performance](/algo_comparison.png) <br>
-
-![time](/algo_time.png)
-
-After tuning hyper-parameters to optimize the algorithms, Stochastic Gradient Descent was found to be the best suited algorithm, taking both performance and time complexity into account.
-Following performance metrics were achievec:
--	Accuracy: 92.81 %
--	Precision: 96.97 %
--	Recall: 91.94 %
--	F1-Score: 94.39 %
-
-## License
-The contents of this repository are covered under the [MIT License](https://github.com/dhavalpotdar/cyberbyllying-detection/blob/master/LICENSE).
+~~~
+@InProceedings{waseem:2016:NLPandCSS,
+  author    = {Waseem, Zeerak},
+  title     = {Are You a Racist or Am I Seeing Things? Annotator Influence on Hate Speech Detection on Twitter},
+  booktitle = {Proceedings of the First Workshop on NLP and Computational Social Science},
+  month     = {November},
+  year      = {2016},
+  address   = {Austin, Texas},
+  publisher = {Association for Computational Linguistics},
+  pages     = {138--142},
+  url       = {http://aclweb.org/anthology/W16-5618}
+}
+~~~
